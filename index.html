@@ -1,763 +1,763 @@
 <!doctype html>
 <html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IT Department Report – PHS 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f3f6fb;
+        --surface: #ffffff;
+        --surface2: #f0f4f9;
+        --surface3: #e8eef6;
+        --border: #d0d9e8;
+        --border2: #e2e8f0;
+        --text: #0f172a;
+        --muted: #64748b;
+        --muted2: #94a3b8;
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IT Department Report – PHS 2026</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f3f6fb;
-      --surface: #ffffff;
-      --surface2: #f0f4f9;
-      --surface3: #e8eef6;
-      --border: #d0d9e8;
-      --border2: #e2e8f0;
-      --text: #0f172a;
-      --muted: #64748b;
-      --muted2: #94a3b8;
+        --done: #16a34a;
+        --doneL: #15803d;
+        --doneGlow: rgba(22, 163, 74, 0.15);
+        --doing: #2563eb;
+        --doingL: #1d4ed8;
+        --doingGlow: rgba(37, 99, 235, 0.15);
+        --overdue: #dc2626;
+        --overdueL: #b91c1c;
+        --overdueGlow: rgba(220, 38, 38, 0.15);
+        --golive: #8b5cf6;
+        --goliveL: #7c3aed;
+        --goliveGlow: rgba(139, 92, 246, 0.15);
+        --todo: #64748b;
+        --todoL: #475569;
 
-      --done: #16a34a;
-      --doneL: #15803d;
-      --doneGlow: rgba(22, 163, 74, .15);
-      --doing: #2563eb;
-      --doingL: #1d4ed8;
-      --doingGlow: rgba(37, 99, 235, .15);
-      --overdue: #dc2626;
-      --overdueL: #b91c1c;
-      --overdueGlow: rgba(220, 38, 38, .15);
-      --golive: #8b5cf6;
-      --goliveL: #7c3aed;
-      --goliveGlow: rgba(139, 92, 246, .15);
-      --todo: #64748b;
-      --todoL: #475569;
+        --accent: #ea6c1a;
+        --accentL: #c2540d;
 
-      --accent: #ea6c1a;
-      --accentL: #c2540d;
+        --tMobile: #7c3aed;
+        --tDevB: #0369a1;
+        --tMW: #15803d;
 
-      --tMobile: #7c3aed;
-      --tDevB: #0369a1;
-      --tMW: #15803d;
+        --radius: 12px;
+        --radius-sm: 8px;
+      }
 
-      --radius: 12px;
-      --radius-sm: 8px;
-    }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        font-family: "Be Vietnam Pro", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 14px;
+        line-height: 1.6;
+      }
 
-    body {
-      font-family: 'Be Vietnam Pro', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.6;
-    }
+      /* ── Header ── */
+      .header {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
 
-    /* ── Header ── */
-    .header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+      .header-logo {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, var(--accent), #ff6b6b);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 16px;
+        color: #fff;
+        letter-spacing: -1px;
+      }
 
-    .header-logo {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--accent), #ff6b6b);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 16px;
-      color: #fff;
-      letter-spacing: -1px;
-    }
+      .header-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text);
+      }
 
-    .header-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-    }
+      .header-sub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 1px;
+      }
 
-    .header-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 1px;
-    }
+      .header-date {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--muted);
+        background: var(--surface3);
+        padding: 5px 12px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+      }
 
-    .header-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      background: var(--surface3);
-      padding: 5px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
+      /* ── Layout ── */
+      main {
+        padding: 24px 28px 56px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
 
-    /* ── Layout ── */
-    main {
-      padding: 24px 28px 56px;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
+      .section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0 0 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
 
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+      .gap24 {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
 
-    .gap24 {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+      .gap16 {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
 
-    .gap16 {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* ── KPI Row ── */
-    .kpi-row {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-
-    @media(max-width:860px) {
+      /* ── KPI Row ── */
       .kpi-row {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
       }
-    }
 
-    .kpi-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 18px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color .2s;
-    }
+      @media (max-width: 860px) {
+        .kpi-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-    .kpi-card:hover {
-      border-color: var(--border2);
-    }
+      .kpi-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        position: relative;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
 
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-    }
+      .kpi-card:hover {
+        border-color: var(--border2);
+      }
 
-    .kpi-card.done::before {
-      background: var(--doneL);
-    }
+      .kpi-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+      }
 
-    .kpi-card.doing::before {
-      background: var(--doingL);
-    }
+      .kpi-card.done::before {
+        background: var(--doneL);
+      }
 
-    .kpi-card.overdue::before {
-      background: var(--overdueL);
-    }
+      .kpi-card.doing::before {
+        background: var(--doingL);
+      }
 
-    .kpi-card.golive::before {
-      background: var(--goliveL);
-    }
+      .kpi-card.overdue::before {
+        background: var(--overdueL);
+      }
 
-    .kpi-card.total::before {
-      background: var(--accent);
-    }
+      .kpi-card.golive::before {
+        background: var(--goliveL);
+      }
 
-    .kpi-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
+      .kpi-card.total::before {
+        background: var(--accent);
+      }
 
-    .kpi-value {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 4px 0 2px;
-      line-height: 1;
-      font-family: 'JetBrains Mono', monospace;
-    }
+      .kpi-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
 
-    .kpi-card.done .kpi-value {
-      color: var(--doneL);
-    }
+      .kpi-value {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 4px 0 2px;
+        line-height: 1;
+        font-family: "JetBrains Mono", monospace;
+      }
 
-    .kpi-card.doing .kpi-value {
-      color: var(--doingL);
-    }
+      .kpi-card.done .kpi-value {
+        color: var(--doneL);
+      }
 
-    .kpi-card.overdue .kpi-value {
-      color: var(--overdueL);
-    }
+      .kpi-card.doing .kpi-value {
+        color: var(--doingL);
+      }
 
-    .kpi-card.golive .kpi-value {
-      color: var(--goliveL);
-    }
+      .kpi-card.overdue .kpi-value {
+        color: var(--overdueL);
+      }
 
-    .kpi-card.total .kpi-value {
-      color: var(--accent);
-    }
+      .kpi-card.golive .kpi-value {
+        color: var(--goliveL);
+      }
 
-    .kpi-sub {
-      font-size: 12px;
-      color: var(--muted);
-    }
+      .kpi-card.total .kpi-value {
+        color: var(--accent);
+      }
 
-    .kpi-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
+      .kpi-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
 
-    .kpi-card.done .kpi-badge {
-      background: var(--doneGlow);
-    }
+      .kpi-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+      }
 
-    .kpi-card.doing .kpi-badge {
-      background: var(--doingGlow);
-    }
+      .kpi-card.done .kpi-badge {
+        background: var(--doneGlow);
+      }
 
-    .kpi-card.overdue .kpi-badge {
-      background: var(--overdueGlow);
-    }
+      .kpi-card.doing .kpi-badge {
+        background: var(--doingGlow);
+      }
 
-    .kpi-card.golive .kpi-badge {
-      background: var(--goliveGlow);
-    }
+      .kpi-card.overdue .kpi-badge {
+        background: var(--overdueGlow);
+      }
 
-    .kpi-card.total .kpi-badge {
-      background: rgba(240, 136, 62, .2);
-    }
+      .kpi-card.golive .kpi-badge {
+        background: var(--goliveGlow);
+      }
 
-    /* ── Panels ── */
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-    }
+      .kpi-card.total .kpi-badge {
+        background: rgba(240, 136, 62, 0.2);
+      }
 
-    .panel-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+      /* ── Panels ── */
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+      }
 
-    .panel-title .ico {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-    }
+      .panel-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
-    /* ── Two-col ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+      .panel-title .ico {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+      }
 
-    @media(max-width:860px) {
+      /* ── Two-col ── */
       .two-col {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
       }
-    }
 
-    .three-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-    }
+      @media (max-width: 860px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    @media(max-width:980px) {
       .three-col {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
       }
-    }
 
-    /* ── Donut cards (quarter view) ── */
-    .donut-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+      @media (max-width: 980px) {
+        .three-col {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    @media(max-width:980px) {
+      /* ── Donut cards (quarter view) ── */
       .donut-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
       }
-    }
-
-    .donut-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-
-    .donut-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 12px;
-    }
-
-    .donut-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .donut-total {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .donut-body {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .donut-canvas {
-      width: 130px !important;
-      height: 130px !important;
-    }
-
-    .donut-legend {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border2);
-      font-size: 11px;
-    }
-
-    .legend-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .legend-left {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-width: 0;
-    }
-
-    .legend-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex: 0 0 auto;
-    }
-
-    .legend-name {
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .legend-val {
-      font-weight: 700;
-      color: var(--text);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .legend-pct {
-      color: var(--muted2);
-      font-size: 10px;
-    }
-
-    /* ── Bar charts ── */
-    .chart-wrap {
-      position: relative;
-      height: 200px;
-    }
-
-    .chart-wrap-tall {
-      position: relative;
-      height: 260px;
-    }
-
-    /* ── Workload table ── */
-    .workload-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .workload-table th {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 8px 12px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .workload-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border2);
-      font-size: 12px;
-    }
-
-    .workload-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .workload-table tr:hover td {
-      background: var(--surface3);
-    }
-
-    .team-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    .team-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-    }
-
-    .bar-mini {
-      height: 6px;
-      border-radius: 3px;
-      background: var(--surface3);
-      overflow: hidden;
-      min-width: 80px;
-    }
-
-    .bar-mini-fill {
-      height: 100%;
-      border-radius: 3px;
-      transition: width .4s;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 8px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .pill-done {
-      background: var(--doneGlow);
-      color: var(--doneL);
-    }
-
-    .pill-doing {
-      background: var(--doingGlow);
-      color: var(--doingL);
-    }
-
-    .pill-overdue {
-      background: var(--overdueGlow);
-      color: var(--overdueL);
-    }
-
-    .pill-todo {
-      background: rgba(72, 79, 88, .3);
-      color: var(--todoL);
-    }
-
-    .pill-golive {
-      background: var(--goliveGlow);
-      color: var(--goliveL);
-    }
-
-    /* ── Assessment / insights ── */
-    .insight-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .insight-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-
-    .insight-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .insight-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex: 0 0 auto;
-    }
-
-    .insight-title {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .insight-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .insight-item {
-      display: flex;
-      gap: 10px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
-    .insight-bullet {
-      width: 18px;
-      height: 18px;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      flex: 0 0 auto;
-      margin-top: 1px;
-    }
-
-    .insight-item strong {
-      color: var(--text);
-    }
-
-    .insight-improve .insight-icon {
-      background: rgba(240, 136, 62, .2);
-    }
-
-    .insight-improve .insight-title {
-      color: var(--accent);
-    }
-
-    .insight-improve .insight-bullet {
-      background: rgba(240, 136, 62, .15);
-      color: var(--accent);
-    }
-
-    .insight-challenge .insight-icon {
-      background: var(--overdueGlow);
-    }
-
-    .insight-challenge .insight-title {
-      color: var(--overdueL);
-    }
-
-    .insight-challenge .insight-bullet {
-      background: rgba(218, 54, 51, .15);
-      color: var(--overdueL);
-    }
-
-    .insight-strength .insight-icon {
-      background: var(--doneGlow);
-    }
-
-    .insight-strength .insight-title {
-      color: var(--doneL);
-    }
-
-    .insight-strength .insight-bullet {
-      background: rgba(35, 134, 54, .15);
-      color: var(--doneL);
-    }
-
-    .insight-plan .insight-icon {
-      background: var(--doingGlow);
-    }
-
-    .insight-plan .insight-title {
-      color: var(--doingL);
-    }
-
-    .insight-plan .insight-bullet {
-      background: rgba(31, 111, 235, .15);
-      color: var(--doingL);
-    }
-
-    /* ── Notice banner ── */
-    .notice {
-      background: rgba(240, 136, 62, .08);
-      border: 1px solid rgba(240, 136, 62, .25);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .notice-icon {
-      font-size: 14px;
-      flex: 0 0 auto;
-    }
-
-    /* ── Progress ring ── */
-    .progress-ring-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .ring-label {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .ring-val {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--text);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* ── Team summary bar ── */
-    .team-summary-bar {
-      display: flex;
-      gap: 0;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      height: 12px;
-      margin: 8px 0 4px;
-    }
-
-    .ts-seg {
-      transition: width .5s ease;
-      height: 100%;
-    }
-
-    .spacer8 {
-      height: 8px;
-    }
-
-    .spacer16 {
-      height: 16px;
-    }
-
-    .spacer24 {
-      height: 24px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="header">
-    <div class="header-left">
-      <div class="header-logo">IT</div>
-      <div>
-        <div class="header-title">IT Department — Task Report 2026</div>
-        <div class="header-sub">Tổng hợp từ đầu năm đến hiện tại · Q1 + Q2 YTD</div>
+
+      @media (max-width: 980px) {
+        .donut-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .donut-card {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px;
+      }
+
+      .donut-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+
+      .donut-title {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .donut-total {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .donut-body {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .donut-canvas {
+        width: 130px !important;
+        height: 130px !important;
+      }
+
+      .donut-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border2);
+        font-size: 11px;
+      }
+
+      .legend-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .legend-left {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+
+      .legend-name {
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .legend-val {
+        font-weight: 700;
+        color: var(--text);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .legend-pct {
+        color: var(--muted2);
+        font-size: 10px;
+      }
+
+      /* ── Bar charts ── */
+      .chart-wrap {
+        position: relative;
+        height: 200px;
+      }
+
+      .chart-wrap-tall {
+        position: relative;
+        height: 260px;
+      }
+
+      /* ── Workload table ── */
+      .workload-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .workload-table th {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 8px 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .workload-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border2);
+        font-size: 12px;
+      }
+
+      .workload-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .workload-table tr:hover td {
+        background: var(--surface3);
+      }
+
+      .team-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      .team-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+      }
+
+      .bar-mini {
+        height: 6px;
+        border-radius: 3px;
+        background: var(--surface3);
+        overflow: hidden;
+        min-width: 80px;
+      }
+
+      .bar-mini-fill {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.4s;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .pill-done {
+        background: var(--doneGlow);
+        color: var(--doneL);
+      }
+
+      .pill-doing {
+        background: var(--doingGlow);
+        color: var(--doingL);
+      }
+
+      .pill-overdue {
+        background: var(--overdueGlow);
+        color: var(--overdueL);
+      }
+
+      .pill-todo {
+        background: rgba(72, 79, 88, 0.3);
+        color: var(--todoL);
+      }
+
+      .pill-golive {
+        background: var(--goliveGlow);
+        color: var(--goliveL);
+      }
+
+      /* ── Assessment / insights ── */
+      .insight-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .insight-card {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+
+      .insight-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .insight-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex: 0 0 auto;
+      }
+
+      .insight-title {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .insight-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .insight-item {
+        display: flex;
+        gap: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .insight-bullet {
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        flex: 0 0 auto;
+        margin-top: 1px;
+      }
+
+      .insight-item strong {
+        color: var(--text);
+      }
+
+      .insight-improve .insight-icon {
+        background: rgba(240, 136, 62, 0.2);
+      }
+
+      .insight-improve .insight-title {
+        color: var(--accent);
+      }
+
+      .insight-improve .insight-bullet {
+        background: rgba(240, 136, 62, 0.15);
+        color: var(--accent);
+      }
+
+      .insight-challenge .insight-icon {
+        background: var(--overdueGlow);
+      }
+
+      .insight-challenge .insight-title {
+        color: var(--overdueL);
+      }
+
+      .insight-challenge .insight-bullet {
+        background: rgba(218, 54, 51, 0.15);
+        color: var(--overdueL);
+      }
+
+      .insight-strength .insight-icon {
+        background: var(--doneGlow);
+      }
+
+      .insight-strength .insight-title {
+        color: var(--doneL);
+      }
+
+      .insight-strength .insight-bullet {
+        background: rgba(35, 134, 54, 0.15);
+        color: var(--doneL);
+      }
+
+      .insight-plan .insight-icon {
+        background: var(--doingGlow);
+      }
+
+      .insight-plan .insight-title {
+        color: var(--doingL);
+      }
+
+      .insight-plan .insight-bullet {
+        background: rgba(31, 111, 235, 0.15);
+        color: var(--doingL);
+      }
+
+      /* ── Notice banner ── */
+      .notice {
+        background: rgba(240, 136, 62, 0.08);
+        border: 1px solid rgba(240, 136, 62, 0.25);
+        border-radius: var(--radius-sm);
+        padding: 10px 14px;
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+      }
+
+      .notice-icon {
+        font-size: 14px;
+        flex: 0 0 auto;
+      }
+
+      /* ── Progress ring ── */
+      .progress-ring-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .ring-label {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .ring-val {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* ── Team summary bar ── */
+      .team-summary-bar {
+        display: flex;
+        gap: 0;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        height: 12px;
+        margin: 8px 0 4px;
+      }
+
+      .ts-seg {
+        transition: width 0.5s ease;
+        height: 100%;
+      }
+
+      .spacer8 {
+        height: 8px;
+      }
+
+      .spacer16 {
+        height: 16px;
+      }
+
+      .spacer24 {
+        height: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-left">
+        <div class="header-logo">IT</div>
+        <div>
+          <div class="header-title">IT Department — Task Report 2026</div>
+          <div class="header-sub">
+            Tổng hợp từ đầu năm đến hiện tại · Q1 + Q2 YTD
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="header-date">Cập nhật: 05/06/2026</div>
-  </header>
+      <div class="header-date">Cập nhật: 05/06/2026</div>
+    </header>
 
-  <main class="gap24">
+    <main class="gap24">
+      <!-- KPI Cards -->
+      <div>
+        <div class="section-label">Tổng quan toàn phòng IT</div>
+        <div class="kpi-row" id="kpiRow"></div>
+      </div>
 
-    <!-- KPI Cards -->
-    <div>
-      <div class="section-label">Tổng quan toàn phòng IT</div>
-      <div class="kpi-row" id="kpiRow"></div>
-    </div>
-
-    <!-- Notice about MDW Q1 -->
-    <!-- <div class="notice">
+      <!-- Notice about MDW Q1 -->
+      <!-- <div class="notice">
       <span class="notice-icon">ℹ️</span>
       <span><strong>Lưu ý dữ liệu MW Team:</strong> Dữ liệu Q1 của MW Team chưa được ghi nhận trong hệ thống tracking
         (tasks được tạo từ 12/05/2026). Các CR mang số hiệu năm 2025 (ví dụ: No.10-2025, No.25-2025…) là backlog
@@ -765,188 +765,276 @@
         lý trong Q2, phản ánh đúng thực tế phòng IT từ đầu năm.</span>
     </div> -->
 
-    <!-- Pie + Workload -->
-    <div class="two-col">
-      <div class="panel">
-        <div class="panel-title"><span class="ico" style="background:rgba(240,136,62,.15)">🥧</span>Phân bổ công việc
-          theo Team</div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
-          <div style="width:240px;height:240px;position:relative;"><canvas id="pieAll"></canvas></div>
-          <div id="pieLegend" style="display:flex;flex-direction:column;gap:8px;width:100%;"></div>
+      <!-- Pie + Workload -->
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-title">
+            <span class="ico" style="background: rgba(240, 136, 62, 0.15)"
+              >🥧</span
+            >Phân bổ công việc theo Team
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 14px;
+            "
+          >
+            <div style="width: 240px; height: 240px; position: relative">
+              <canvas id="pieAll"></canvas>
+            </div>
+            <div
+              id="pieLegend"
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">
+            <span class="ico" style="background: rgba(121, 192, 255, 0.15)"
+              >📊</span
+            >Workload chi tiết theo Team
+          </div>
+          <table class="workload-table" id="workloadTable"></table>
         </div>
       </div>
 
-      <div class="panel">
-        <div class="panel-title"><span class="ico" style="background:rgba(121,192,255,.15)">📊</span>Workload chi tiết
-          theo Team</div>
-        <table class="workload-table" id="workloadTable"></table>
+      <!-- Q1 Section -->
+      <div>
+        <div class="section-label">Quý 1 — Jan → Mar 2026</div>
+        <div class="donut-grid" id="q1Grid"></div>
       </div>
-    </div>
 
-    <!-- Q1 Section -->
-    <div>
-      <div class="section-label">Quý 1 — Jan → Mar 2026</div>
-      <div class="donut-grid" id="q1Grid"></div>
-    </div>
-
-    <!-- Q2 Section -->
-    <div>
-      <div class="section-label">Quý 2 — Apr → Jun 2026 (YTD)</div>
-      <div class="donut-grid" id="q2Grid"></div>
-    </div>
-
-    <!-- Bar charts by team -->
-    <div class="three-col">
-      <div class="panel">
-        <div class="panel-title"><span class="ico" style="background:rgba(210,168,255,.15)">📱</span>Team Mobile — Q1 vs
-          Q2</div>
-        <div class="chart-wrap"><canvas id="barMobile"></canvas></div>
+      <!-- Q2 Section -->
+      <div>
+        <div class="section-label">Quý 2 — Apr → Jun 2026 (YTD)</div>
+        <div class="donut-grid" id="q2Grid"></div>
       </div>
-      <div class="panel">
-        <div class="panel-title"><span class="ico" style="background:rgba(121,192,255,.15)">💻</span>Dev Team B — Q1 vs
-          Q2</div>
-        <div class="chart-wrap"><canvas id="barDevB"></canvas></div>
-      </div>
-      <div class="panel">
-        <div class="panel-title"><span class="ico" style="background:rgba(86,211,100,.15)">⚙️</span>MW Team — Q1 vs Q2
+
+      <!-- Bar charts by team -->
+      <div class="three-col">
+        <div class="panel">
+          <div class="panel-title">
+            <span class="ico" style="background: rgba(210, 168, 255, 0.15)"
+              >📱</span
+            >Team Mobile — Q1 vs Q2
+          </div>
+          <div class="chart-wrap"><canvas id="barMobile"></canvas></div>
         </div>
-        <div class="chart-wrap"><canvas id="barMW"></canvas></div>
+        <div class="panel">
+          <div class="panel-title">
+            <span class="ico" style="background: rgba(121, 192, 255, 0.15)"
+              >💻</span
+            >Dev Team B — Q1 vs Q2
+          </div>
+          <div class="chart-wrap"><canvas id="barDevB"></canvas></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <span class="ico" style="background: rgba(86, 211, 100, 0.15)"
+              >⚙️</span
+            >MW Team — Q1 vs Q2
+          </div>
+          <div class="chart-wrap"><canvas id="barMW"></canvas></div>
+        </div>
       </div>
-    </div>
 
-    <!-- Assessment section -->
-    <div>
-      <div class="section-label">Đánh giá tổng quan & Phân tích</div>
-      <div class="insight-grid" id="insightGrid"></div>
-    </div>
+      <!-- Assessment section -->
+      <div>
+        <div class="section-label">Đánh giá tổng quan & Phân tích</div>
+        <div class="insight-grid" id="insightGrid"></div>
+      </div>
+    </main>
 
-  </main>
+    <script>
+      // ============================================================
+      // DATA — 5 statuses: done, doing, overdue, golive, todo
+      // "Hoàn thành muộn" → done · "Ready for Golive" → golive
+      // ============================================================
 
-  <script>
-    // ============================================================
-    // DATA — 5 statuses: done, doing, overdue, golive, todo
-    // "Hoàn thành muộn" → done · "Ready for Golive" → golive
-    // ============================================================
+      // ── Data sourced from task-output-v3.xlsx (02/03/2026 – 05/06/2026) ──
+      // Task naming convention: [CR] [request-id] — request-id is the ID from the base request platform
+      // Team leads: phongvo@phs.vn (Mobile), minhvo@phs.vn (Dev B), huunguyen@phs.vn (MW)
+      // Backlog tasks are counted as "todo" (not yet scheduled)
+      // Ready for Golive: CR 2275303, CR 2149046, CR 2329940
+      const DATA = {
+        "Team Mobile": {
+          Q1: { done: 13, doing: 0, overdue: 0, golive: 0, todo: 0 },
+          Q2: { done: 6, doing: 4, overdue: 2, golive: 3, todo: 0 }, // golive: CR 2275303, 2149046 (ex-overdue) + CR 2329940 (ex-done)
+          Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 10 },
+        },
+        "Dev Team B": {
+          Q1: { done: 4, doing: 0, overdue: 0, golive: 0, todo: 0 },
+          Q2: { done: 7, doing: 6, overdue: 0, golive: 0, todo: 0 },
+          Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 6 },
+        },
+        "MW Team": {
+          Q1: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0 },
+          Q2: { done: 4, doing: 10, overdue: 0, golive: 0, todo: 0 },
+          Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 1 },
+        },
+      };
 
-    // ── Data sourced from task-output-v3.xlsx (02/03/2026 – 05/06/2026) ──
-    // Task naming convention: [CR] [request-id] — request-id is the ID from the base request platform
-    // Team leads: phongvo@phs.vn (Mobile), minhvo@phs.vn (Dev B), huunguyen@phs.vn (MW)
-    // Backlog tasks are counted as "todo" (not yet scheduled)
-    // Ready for Golive: CR 2275303, CR 2149046, CR 2329940
-    const DATA = {
-      "Team Mobile": {
-        Q1: { done: 13, doing: 0, overdue: 0, golive: 0, todo: 0 },
-        Q2: { done: 6, doing: 4, overdue: 2, golive: 3, todo: 0 },  // golive: CR 2275303, 2149046 (ex-overdue) + CR 2329940 (ex-done)
-        Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 10 },
-      },
-      "Dev Team B": {
-        Q1: { done: 4, doing: 0, overdue: 0, golive: 0, todo: 0 },
-        Q2: { done: 7, doing: 6, overdue: 0, golive: 0, todo: 0 },
-        Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 6 },
-      },
-      "MW Team": {
-        Q1: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0 },
-        Q2: { done: 4, doing: 10, overdue: 0, golive: 0, todo: 0 },
-        Backlog: { done: 0, doing: 0, overdue: 0, golive: 0, todo: 1 },
+      const TEAMS = ["Team Mobile", "Dev Team B", "MW Team"];
+      const TEAM_COLORS = {
+        "Team Mobile": "#d2a8ff",
+        "Dev Team B": "#79c0ff",
+        "MW Team": "#56d364",
+      };
+      const STATUS_COLORS = {
+        done: "#16a34a",
+        doing: "#2563eb",
+        overdue: "#dc2626",
+        golive: "#8b5cf6",
+        todo: "#94a3b8",
+      };
+      const STATUS_LABELS = {
+        done: "Done",
+        doing: "Doing",
+        overdue: "Overdue",
+        golive: "Golive",
+        todo: "Todo",
+      };
+
+      function sumTeam(team) {
+        const d = DATA[team];
+        let t = { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0, total: 0 };
+        for (const bucket of Object.keys(d)) {
+          const b = d[bucket];
+          t.done += b.done || 0;
+          t.doing += b.doing || 0;
+          t.overdue += b.overdue || 0;
+          t.golive += b.golive || 0;
+          t.todo += b.todo || 0;
+        }
+        t.total = t.done + t.doing + t.overdue + t.golive + t.todo;
+        return t;
       }
-    };
 
-    const TEAMS = ["Team Mobile", "Dev Team B", "MW Team"];
-    const TEAM_COLORS = {
-      "Team Mobile": "#d2a8ff",
-      "Dev Team B": "#79c0ff",
-      "MW Team": "#56d364",
-    };
-    const STATUS_COLORS = {
-      done: "#16a34a",
-      doing: "#2563eb",
-      overdue: "#dc2626",
-      golive: "#8b5cf6",
-      todo: "#94a3b8",
-    };
-    const STATUS_LABELS = { done: "Done", doing: "Doing", overdue: "Overdue", golive: "Golive", todo: "Todo" };
-
-    function sumTeam(team) {
-      const d = DATA[team];
-      let t = { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0, total: 0 };
-      for (const bucket of Object.keys(d)) {
-        const b = d[bucket];
-        t.done += b.done || 0;
-        t.doing += b.doing || 0;
-        t.overdue += b.overdue || 0;
-        t.golive += b.golive || 0;
-        t.todo += b.todo || 0;
+      function sumAll() {
+        let t = { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0, total: 0 };
+        for (const team of TEAMS) {
+          const s = sumTeam(team);
+          t.done += s.done;
+          t.doing += s.doing;
+          t.overdue += s.overdue;
+          t.golive += s.golive;
+          t.todo += s.todo;
+        }
+        t.total = t.done + t.doing + t.overdue + t.golive + t.todo;
+        return t;
       }
-      t.total = t.done + t.doing + t.overdue + t.golive + t.todo;
-      return t;
-    }
 
-    function sumAll() {
-      let t = { done: 0, doing: 0, overdue: 0, golive: 0, todo: 0, total: 0 };
-      for (const team of TEAMS) {
-        const s = sumTeam(team);
-        t.done += s.done;
-        t.doing += s.doing;
-        t.overdue += s.overdue;
-        t.golive += s.golive;
-        t.todo += s.todo;
+      function pct(n, d) {
+        return !d ? 0 : Math.round((n / d) * 100);
       }
-      t.total = t.done + t.doing + t.overdue + t.golive + t.todo;
-      return t;
-    }
 
-    function pct(n, d) { return (!d) ? 0 : Math.round(n / d * 100); }
-
-    // ============================================================
-    // KPI CARDS
-    // ============================================================
-    (function renderKPI() {
-      const agg = sumAll();
-      const cards = [
-        { cls: "total", label: "Tổng công việc", val: agg.total, sub: "Toàn phòng IT từ đầu năm", icon: "📋" },
-        { cls: "done", label: "Đã hoàn thành", val: agg.done, sub: pct(agg.done, agg.total) + "% completion rate", icon: "✅" },
-        { cls: "doing", label: "Đang thực hiện", val: agg.doing, sub: pct(agg.doing, agg.total) + "% đang trong progress", icon: "🔄" },
-        { cls: "golive", label: "Ready for Golive", val: agg.golive, sub: pct(agg.golive, agg.total) + "% sẵn sàng golive", icon: "🚀" },
-        { cls: "overdue", label: "Quá hạn", val: agg.overdue, sub: pct(agg.overdue, agg.total) + "% cần xử lý ngay", icon: "⚠️" },
-      ];
-      const el = document.getElementById("kpiRow");
-      el.innerHTML = cards.map(c => `
+      // ============================================================
+      // KPI CARDS
+      // ============================================================
+      (function renderKPI() {
+        const agg = sumAll();
+        const cards = [
+          {
+            cls: "total",
+            label: "Tổng công việc",
+            val: agg.total,
+            sub: "Toàn phòng IT từ đầu năm",
+            icon: "📋",
+          },
+          {
+            cls: "done",
+            label: "Đã hoàn thành",
+            val: agg.done,
+            sub: pct(agg.done, agg.total) + "% completion rate",
+            icon: "✅",
+          },
+          {
+            cls: "doing",
+            label: "Đang thực hiện",
+            val: agg.doing,
+            sub: pct(agg.doing, agg.total) + "% đang trong progress",
+            icon: "🔄",
+          },
+          {
+            cls: "golive",
+            label: "Ready for Golive",
+            val: agg.golive,
+            sub: pct(agg.golive, agg.total) + "% sẵn sàng golive",
+            icon: "🚀",
+          },
+          {
+            cls: "overdue",
+            label: "Quá hạn",
+            val: agg.overdue,
+            sub: pct(agg.overdue, agg.total) + "% cần xử lý ngay",
+            icon: "⚠️",
+          },
+        ];
+        const el = document.getElementById("kpiRow");
+        el.innerHTML = cards
+          .map(
+            (c) => `
     <div class="kpi-card ${c.cls}">
       <div class="kpi-badge">${c.icon}</div>
       <div class="kpi-label">${c.label}</div>
       <div class="kpi-value">${c.val}</div>
       <div class="kpi-sub">${c.sub}</div>
     </div>
-  `).join("");
-    })();
+  `,
+          )
+          .join("");
+      })();
 
-    // ============================================================
-    // PIE CHART
-    // ============================================================
-    (function renderPie() {
-      const totals = TEAMS.map(t => sumTeam(t).total);
-      const el = document.getElementById("pieLegend");
+      // ============================================================
+      // PIE CHART
+      // ============================================================
+      (function renderPie() {
+        const totals = TEAMS.map((t) => sumTeam(t).total);
+        const el = document.getElementById("pieLegend");
 
-      new Chart(document.getElementById("pieAll"), {
-        type: "pie",
-        data: {
-          labels: TEAMS,
-          datasets: [{ data: totals, backgroundColor: TEAMS.map(t => TEAM_COLORS[t]), borderWidth: 2, borderColor: "#ffffff" }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: true,
-          plugins: {
-            legend: { display: false }, tooltip: {
-              callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} tasks (${pct(ctx.raw, totals.reduce((a, b) => a + b, 0))}%)` }
-            }
-          }
-        }
-      });
+        new Chart(document.getElementById("pieAll"), {
+          type: "pie",
+          data: {
+            labels: TEAMS,
+            datasets: [
+              {
+                data: totals,
+                backgroundColor: TEAMS.map((t) => TEAM_COLORS[t]),
+                borderWidth: 2,
+                borderColor: "#ffffff",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) =>
+                    ` ${ctx.label}: ${ctx.raw} tasks (${pct(
+                      ctx.raw,
+                      totals.reduce((a, b) => a + b, 0),
+                    )}%)`,
+                },
+              },
+            },
+          },
+        });
 
-      el.innerHTML = TEAMS.map(t => {
-        const s = sumTeam(t);
-        const allTotal = sumAll().total;
-        return `
+        el.innerHTML = TEAMS.map((t) => {
+          const s = sumTeam(t);
+          const allTotal = sumAll().total;
+          return `
       <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #e2e8f0;">
         <div style="display:flex;align-items:center;gap:8px;">
           <span style="width:10px;height:10px;border-radius:3px;background:${TEAM_COLORS[t]};flex:0 0 auto;"></span>
@@ -958,26 +1046,26 @@
         </div>
       </div>
     `;
-      }).join("");
-    })();
+        }).join("");
+      })();
 
-    // ============================================================
-    // WORKLOAD TABLE
-    // ============================================================
-    (function renderWorkload() {
-      const el = document.getElementById("workloadTable");
-      const allTotal = sumAll().total;
+      // ============================================================
+      // WORKLOAD TABLE
+      // ============================================================
+      (function renderWorkload() {
+        const el = document.getElementById("workloadTable");
+        const allTotal = sumAll().total;
 
-      let html = `<thead><tr>
+        let html = `<thead><tr>
     <th>Team</th><th>Total</th><th>Done</th><th>Doing</th><th>Golive</th><th>Overdue</th><th>Todo</th><th>Workload Share</th>
   </tr></thead><tbody>`;
 
-      for (const team of TEAMS) {
-        const s = sumTeam(team);
-        const share = pct(s.total, allTotal);
-        const doneRate = pct(s.done, s.total);
+        for (const team of TEAMS) {
+          const s = sumTeam(team);
+          const share = pct(s.total, allTotal);
+          const doneRate = pct(s.done, s.total);
 
-        html += `<tr>
+          html += `<tr>
       <td><span class="team-badge">
         <span class="team-dot" style="background:${TEAM_COLORS[team]};"></span>
         ${team}
@@ -997,11 +1085,11 @@
         </div>
       </td>
     </tr>`;
-      }
+        }
 
-      // Total row
-      const t = sumAll();
-      html += `<tr style="background:#f0f4f9;">
+        // Total row
+        const t = sumAll();
+        html += `<tr style="background:#f0f4f9;">
     <td><strong>Toàn phòng</strong></td>
     <td><strong style="font-family:'JetBrains Mono',monospace;color:#ea6c1a;">${t.total}</strong></td>
     <td><strong style="color:#15803d;font-family:'JetBrains Mono',monospace;">${t.done}</strong></td>
@@ -1012,61 +1100,89 @@
     <td><span style="font-size:11px;color:#64748b;">—</span></td>
   </tr>`;
 
-      html += "</tbody>";
-      el.innerHTML = html;
-    })();
+        html += "</tbody>";
+        el.innerHTML = html;
+      })();
 
-    // ============================================================
-    // DONUT CARDS
-    // ============================================================
-    const donutCharts = new Map();
+      // ============================================================
+      // DONUT CARDS
+      // ============================================================
+      const donutCharts = new Map();
 
-    function makeDonut(canvasId, data) {
-      const vals = [data.done || 0, data.doing || 0, data.overdue || 0, data.golive || 0, data.todo || 0];
-      const total = vals.reduce((a, b) => a + b, 0);
-      const isEmpty = vals.every(v => v === 0);
+      function makeDonut(canvasId, data) {
+        const vals = [
+          data.done || 0,
+          data.doing || 0,
+          data.overdue || 0,
+          data.golive || 0,
+          data.todo || 0,
+        ];
+        const total = vals.reduce((a, b) => a + b, 0);
+        const isEmpty = vals.every((v) => v === 0);
 
-      if (donutCharts.has(canvasId)) donutCharts.get(canvasId).destroy();
+        if (donutCharts.has(canvasId)) donutCharts.get(canvasId).destroy();
 
-      const chart = new Chart(document.getElementById(canvasId), {
-        type: "doughnut",
-        data: {
-          labels: ["Done", "Doing", "Overdue", "Golive", "Todo"],
-          datasets: [{
-            data: isEmpty ? [1] : vals,
-            backgroundColor: isEmpty ? ["#e2e8f0"] : [STATUS_COLORS.done, STATUS_COLORS.doing, STATUS_COLORS.overdue, STATUS_COLORS.golive, STATUS_COLORS.todo],
-            borderWidth: 2, borderColor: "#ffffff",
-            hoverOffset: 4
-          }]
-        },
-        options: {
-          cutout: "65%", responsive: false, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false }, tooltip: {
-              callbacks: {
-                label: ctx => ` ${ctx.label}: ${ctx.raw}${total ? " (" + pct(ctx.raw, total) + "%)" : ""}`
-              }
-            }
-          }
-        }
-      });
-      donutCharts.set(canvasId, chart);
-      return chart;
-    }
+        const chart = new Chart(document.getElementById(canvasId), {
+          type: "doughnut",
+          data: {
+            labels: ["Done", "Doing", "Overdue", "Golive", "Todo"],
+            datasets: [
+              {
+                data: isEmpty ? [1] : vals,
+                backgroundColor: isEmpty
+                  ? ["#e2e8f0"]
+                  : [
+                      STATUS_COLORS.done,
+                      STATUS_COLORS.doing,
+                      STATUS_COLORS.overdue,
+                      STATUS_COLORS.golive,
+                      STATUS_COLORS.todo,
+                    ],
+                borderWidth: 2,
+                borderColor: "#ffffff",
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            cutout: "65%",
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) =>
+                    ` ${ctx.label}: ${ctx.raw}${total ? " (" + pct(ctx.raw, total) + "%)" : ""}`,
+                },
+              },
+            },
+          },
+        });
+        donutCharts.set(canvasId, chart);
+        return chart;
+      }
 
-    function renderDonutGrid(quarter, gridId) {
-      const grid = document.getElementById(gridId);
-      const teamsForQ = quarter === "Q1"
-        ? TEAMS  // all 3 teams have Q1 data
-        : TEAMS;
+      function renderDonutGrid(quarter, gridId) {
+        const grid = document.getElementById(gridId);
+        const teamsForQ =
+          quarter === "Q1"
+            ? TEAMS // all 3 teams have Q1 data
+            : TEAMS;
 
-      grid.innerHTML = teamsForQ.map(team => {
-        const d = DATA[team][quarter];
-        const total = (d.done || 0) + (d.doing || 0) + (d.overdue || 0) + (d.golive || 0) + (d.todo || 0);
-        const id = `donut-${quarter}-${team.replace(/ /g, "_")}`;
-        const hasNote = d.note;
+        grid.innerHTML = teamsForQ
+          .map((team) => {
+            const d = DATA[team][quarter];
+            const total =
+              (d.done || 0) +
+              (d.doing || 0) +
+              (d.overdue || 0) +
+              (d.golive || 0) +
+              (d.todo || 0);
+            const id = `donut-${quarter}-${team.replace(/ /g, "_")}`;
+            const hasNote = d.note;
 
-        return `
+            return `
       <div class="donut-card">
         <div class="donut-header">
           <div class="donut-title">
@@ -1080,12 +1196,14 @@
           <canvas id="${id}" class="donut-canvas" width="130" height="130"></canvas>
           <div class="donut-legend">
             ${[
-            ["done", "Done", d.done || 0],
-            ["doing", "Doing", d.doing || 0],
-            ["overdue", "Overdue", d.overdue || 0],
-            ["golive", "Golive", d.golive || 0],
-            ["todo", "Todo / Carryover", d.todo || 0],
-          ].map(([k, label, val]) => `
+              ["done", "Done", d.done || 0],
+              ["doing", "Doing", d.doing || 0],
+              ["overdue", "Overdue", d.overdue || 0],
+              ["golive", "Golive", d.golive || 0],
+              ["todo", "Todo / Carryover", d.todo || 0],
+            ]
+              .map(
+                ([k, label, val]) => `
               <div class="legend-item">
                 <div class="legend-left">
                   <span class="legend-dot" style="background:${STATUS_COLORS[k]};"></span>
@@ -1096,107 +1214,187 @@
                   <span class="legend-pct">${total ? pct(val, total) : "—"}%</span>
                 </div>
               </div>
-            `).join("")}
+            `,
+              )
+              .join("")}
           </div>
         </div>
       </div>
     `;
-      }).join("");
+          })
+          .join("");
 
-      // render donuts after DOM inserted
-      requestAnimationFrame(() => {
-        teamsForQ.forEach(team => {
-          const d = DATA[team][quarter];
-          const id = `donut-${quarter}-${team.replace(/ /g, "_")}`;
-          makeDonut(id, d);
+        // render donuts after DOM inserted
+        requestAnimationFrame(() => {
+          teamsForQ.forEach((team) => {
+            const d = DATA[team][quarter];
+            const id = `donut-${quarter}-${team.replace(/ /g, "_")}`;
+            makeDonut(id, d);
+          });
         });
-      });
-    }
+      }
 
-    renderDonutGrid("Q1", "q1Grid");
-    renderDonutGrid("Q2", "q2Grid");
+      renderDonutGrid("Q1", "q1Grid");
+      renderDonutGrid("Q2", "q2Grid");
 
-    // ============================================================
-    // BAR CHARTS — Q1 vs Q2 per team
-    // ============================================================
-    function makeGroupedBar(canvasId, team) {
-      const q1 = DATA[team].Q1;
-      const q2 = DATA[team].Q2;
+      // ============================================================
+      // BAR CHARTS — Q1 vs Q2 per team
+      // ============================================================
+      function makeGroupedBar(canvasId, team) {
+        const q1 = DATA[team].Q1;
+        const q2 = DATA[team].Q2;
 
-      new Chart(document.getElementById(canvasId), {
-        type: "bar",
-        data: {
-          labels: ["Done", "Doing", "Overdue", "Golive", "Todo"],
-          datasets: [
-            {
-              label: "Q1",
-              data: [q1.done || 0, q1.doing || 0, q1.overdue || 0, q1.golive || 0, q1.todo || 0],
-              backgroundColor: [STATUS_COLORS.done, STATUS_COLORS.doing, STATUS_COLORS.overdue, STATUS_COLORS.golive, STATUS_COLORS.todo].map(c => c + "99"),
-              borderRadius: 5, borderSkipped: false,
+        new Chart(document.getElementById(canvasId), {
+          type: "bar",
+          data: {
+            labels: ["Done", "Doing", "Overdue", "Golive", "Todo"],
+            datasets: [
+              {
+                label: "Q1",
+                data: [
+                  q1.done || 0,
+                  q1.doing || 0,
+                  q1.overdue || 0,
+                  q1.golive || 0,
+                  q1.todo || 0,
+                ],
+                backgroundColor: [
+                  STATUS_COLORS.done,
+                  STATUS_COLORS.doing,
+                  STATUS_COLORS.overdue,
+                  STATUS_COLORS.golive,
+                  STATUS_COLORS.todo,
+                ].map((c) => c + "99"),
+                borderRadius: 5,
+                borderSkipped: false,
+              },
+              {
+                label: "Q2",
+                data: [
+                  q2.done || 0,
+                  q2.doing || 0,
+                  q2.overdue || 0,
+                  q2.golive || 0,
+                  q2.todo || 0,
+                ],
+                backgroundColor: [
+                  STATUS_COLORS.done,
+                  STATUS_COLORS.doing,
+                  STATUS_COLORS.overdue,
+                  STATUS_COLORS.golive,
+                  STATUS_COLORS.todo,
+                ],
+                borderRadius: 5,
+                borderSkipped: false,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { labels: { color: "#64748b", font: { size: 11 } } },
             },
-            {
-              label: "Q2",
-              data: [q2.done || 0, q2.doing || 0, q2.overdue || 0, q2.golive || 0, q2.todo || 0],
-              backgroundColor: [STATUS_COLORS.done, STATUS_COLORS.doing, STATUS_COLORS.overdue, STATUS_COLORS.golive, STATUS_COLORS.todo],
-              borderRadius: 5, borderSkipped: false,
-            }
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { labels: { color: "#64748b", font: { size: 11 } } } },
-          scales: {
-            x: { grid: { color: "#e2e8f0" }, ticks: { color: "#64748b", font: { size: 11 } } },
-            y: { grid: { color: "#e2e8f0" }, ticks: { color: "#64748b", font: { size: 11 }, stepSize: 1 }, beginAtZero: true }
+            scales: {
+              x: {
+                grid: { color: "#e2e8f0" },
+                ticks: { color: "#64748b", font: { size: 11 } },
+              },
+              y: {
+                grid: { color: "#e2e8f0" },
+                ticks: { color: "#64748b", font: { size: 11 }, stepSize: 1 },
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+
+      makeGroupedBar("barMobile", "Team Mobile");
+      makeGroupedBar("barDevB", "Dev Team B");
+      makeGroupedBar("barMW", "MW Team");
+
+      // ============================================================
+      // ASSESSMENT PANEL
+      // ============================================================
+      (function renderInsights() {
+        const agg = sumAll();
+
+        // const insights = [
+        //   {
+        //     type: "insight-challenge",
+        //     icon: "⚠️",
+        //     title: "Khó khăn trong quá trình làm",
+        //     items: [
+        //       { icon: "🚀", text: `<strong>3 CRs đã sẵn sàng Golive (Team Mobile Q2)</strong> — CR 2275303 (Securities depository), CR 2149046 (EKYC), CR 2329940 (AI Chatbot). Các CR này đã hoàn tất phát triển và đang chờ lịch golive, cần phối hợp chặt với vận hành và các phòng ban liên quan để đưa lên production.` },
+        //       { icon: "🔴", text: `<strong>${agg.overdue} tasks quá hạn ở Team Mobile Q2</strong> — bao gồm CR 2084592 (Special interest rate on FLEX) và CR 2238356 (Advance Margin). Các CR này phụ thuộc vào bên thứ ba và yêu cầu phối hợp liên phòng ban (RMD, SS, MSD).` },
+        //       { icon: "⏳", text: `<strong>MW Team đang xử lý 10 tasks đồng thời trong Q2</strong> — bao gồm 8 CRs carryover từ 2025 (No.09-2025 đến No.39-2025) cùng các yêu cầu mới. Khối lượng doing lớn nhất toàn phòng, tạo áp lực về tiến độ và rủi ro trễ hạn.` },
+        //       { icon: "📋", text: `<strong>17 tasks trong Backlog chưa được lên kế hoạch</strong> — Team Mobile (10), Dev Team B (6), MW Team (1). Cần đánh giá ưu tiên và phân bổ resource để tránh tồn đọng kéo dài sang Q3.` },
+        //       { icon: "🔗", text: `<strong>Phối hợp liên team cho các CR cross-team</strong> — Một số CR cần phát triển đồng thời bởi 2-3 team (Mobile, Dev B, MW). Việc đồng bộ tiến độ và dependency giữa các team là thách thức lớn, đặc biệt khi mỗi team có workload và timeline khác nhau.` },
+        //     ]
+        //   }
+        // ];
+
+    const insights = [
+          {
+            type: "insight-challenge",
+            icon: "⚠️",
+            title: "Khó khăn trong quá trình triển khai Q2",
+            items: [
+              {
+                icon: "🚀",
+                text: `3 CRs của Team Mobile Q2 đã sẵn sàng Golive — CR 2275303 (Securities Depository), CR 2149046 (EKYC) và CR 2329940 (AI Chatbot) đã hoàn tất phát triển, đang chờ lịch triển khai production. Cần sớm phối hợp với Vận hành và các phòng ban liên quan để chốt lịch Golive, checklist triển khai và phương án hỗ trợ sau release.`
+              },
+              {
+                icon: "🔴",
+                text: `${agg.overdue} tasks quá hạn ở Team Mobile Q2 — Bao gồm CR 2084592 (Special Interest Rate on FLEX) và CR 2238356 (Advance Margin). Các CR này phụ thuộc bên thứ ba và cần phối hợp liên phòng ban như RMD, SS, MSD, nên cần xác định rõ owner, deadline phản hồi và hướng xử lý dependency.`
+              },
+              {
+                icon: "⏳",
+                text: `MW Team đang xử lý 10 tasks đồng thời trong Q2 — Bao gồm 8 CRs carryover từ 2025 và các yêu cầu mới. Đây là nhóm có khối lượng doing lớn nhất toàn phòng, tạo áp lực về tiến độ, chất lượng xử lý và rủi ro trễ hạn.`
+              },
+              {
+                icon: "🧩",
+                text: `MW Team đang gặp rủi ro chồng chéo logic trên môi trường DEV — Nhiều CR được deploy đồng thời lên DEV khiến logic có thể bị ghi đè lẫn nhau, phát sinh lỗi lặp lại và phải fix nhiều lần. Cần kiểm soát thứ tự deploy, version, branch và dependency để hạn chế ảnh hưởng đến chất lượng release.`
+              },
+              // {
+              //   icon: "📋",
+              //   text: `17 tasks trong Backlog chưa được lên kế hoạch — Bao gồm Team Mobile (10), Dev Team B (6) và MW Team (1). Cần rà soát mức độ ưu tiên, dependency và năng lực triển khai để tránh backlog tiếp tục kéo dài sang Q3.`
+              // },
+              // {
+              //   icon: "🔗",
+              //   text: `Các CR cross-team cần được quản lý dependency chặt chẽ — Một số CR cần Mobile, Dev Team B và MW cùng phát triển. Cần đồng bộ timeline, phạm vi thay đổi, milestone và kế hoạch kiểm thử tích hợp để giảm rủi ro lệch tiến độ giữa các team.`
+              // }
+            ]
           }
-        }
-      });
-    }
+        ];
 
-    makeGroupedBar("barMobile", "Team Mobile");
-    makeGroupedBar("barDevB", "Dev Team B");
-    makeGroupedBar("barMW", "MW Team");
-
-    // ============================================================
-    // ASSESSMENT PANEL
-    // ============================================================
-    (function renderInsights() {
-      const agg = sumAll();
-
-      const insights = [
-        {
-          type: "insight-challenge",
-          icon: "⚠️",
-          title: "Khó khăn trong quá trình làm",
-          items: [
-            { icon: "🚀", text: `<strong>3 CRs đã sẵn sàng Golive (Team Mobile Q2)</strong> — CR 2275303 (Securities depository), CR 2149046 (EKYC), CR 2329940 (AI Chatbot). Các CR này đã hoàn tất phát triển và đang chờ lịch golive, cần phối hợp chặt với vận hành và các phòng ban liên quan để đưa lên production.` },
-            { icon: "🔴", text: `<strong>${agg.overdue} tasks quá hạn ở Team Mobile Q2</strong> — bao gồm CR 2084592 (Special interest rate on FLEX) và CR 2238356 (Advance Margin). Các CR này phụ thuộc vào bên thứ ba và yêu cầu phối hợp liên phòng ban (RMD, SS, MSD).` },
-            { icon: "⏳", text: `<strong>MW Team đang xử lý 10 tasks đồng thời trong Q2</strong> — bao gồm 8 CRs carryover từ 2025 (No.09-2025 đến No.39-2025) cùng các yêu cầu mới. Khối lượng doing lớn nhất toàn phòng, tạo áp lực về tiến độ và rủi ro trễ hạn.` },
-            { icon: "📋", text: `<strong>17 tasks trong Backlog chưa được lên kế hoạch</strong> — Team Mobile (10), Dev Team B (6), MW Team (1). Cần đánh giá ưu tiên và phân bổ resource để tránh tồn đọng kéo dài sang Q3.` },
-            { icon: "🔗", text: `<strong>Phối hợp liên team cho các CR cross-team</strong> — Một số CR cần phát triển đồng thời bởi 2-3 team (Mobile, Dev B, MW). Việc đồng bộ tiến độ và dependency giữa các team là thách thức lớn, đặc biệt khi mỗi team có workload và timeline khác nhau.` },
-          ]
-        }
-      ];
-
-      const el = document.getElementById("insightGrid");
-      el.innerHTML = insights.map(ins => `
+        const el = document.getElementById("insightGrid");
+        el.innerHTML = insights
+          .map(
+            (ins) => `
     <div class="insight-card ${ins.type}">
       <div class="insight-header">
         <div class="insight-icon">${ins.icon}</div>
         <div class="insight-title">${ins.title}</div>
       </div>
       <div class="insight-list">
-        ${ins.items.map(item => `
+        ${ins.items
+          .map(
+            (item) => `
           <div class="insight-item">
             <div class="insight-bullet">${item.icon}</div>
             <div>${item.text}</div>
           </div>
-        `).join("")}
+        `,
+          )
+          .join("")}
       </div>
     </div>
-  `).join("");
-    })();
-  </script>
-</body>
-
+  `,
+          )
+          .join("");
+      })();
+    </script>
+  </body>
 </html>
