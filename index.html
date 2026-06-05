@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -742,17 +742,18 @@
         <div>
           <div class="header-title">IT Department — Task Report 2026</div>
           <div class="header-sub">
-            Tổng hợp từ đầu năm đến hiện tại · Q1 + Q2 YTD
+            Year-to-date summary · Q1 + Q2 YTD
+            <span style="display:block;font-size:10px;color:var(--muted2);">Tổng hợp từ đầu năm đến hiện tại · Q1 + Q2 YTD</span>
           </div>
         </div>
       </div>
-      <div class="header-date">Cập nhật: 05/06/2026</div>
+      <div class="header-date">Updated: 05/06/2026<br><span style="font-size:10px;opacity:0.7;">Cập nhật</span></div>
     </header>
 
     <main class="gap24">
       <!-- KPI Cards -->
       <div>
-        <div class="section-label">Tổng quan toàn phòng IT</div>
+        <div class="section-label">IT Department Overview <span style="font-size:9px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted2);margin-left:4px;">/ Tổng quan toàn phòng IT</span></div>
         <div class="kpi-row" id="kpiRow"></div>
       </div>
 
@@ -771,7 +772,7 @@
           <div class="panel-title">
             <span class="ico" style="background: rgba(240, 136, 62, 0.15)"
               >🥧</span
-            >Phân bổ công việc theo Team
+            >Task Distribution by Team<span style="display:block;font-size:10px;font-weight:400;color:var(--muted2);margin-top:1px;">Phân bổ công việc theo Team</span>
           </div>
           <div
             style="
@@ -800,7 +801,7 @@
           <div class="panel-title">
             <span class="ico" style="background: rgba(121, 192, 255, 0.15)"
               >📊</span
-            >Workload chi tiết theo Team
+            >Detailed Workload by Team<span style="display:block;font-size:10px;font-weight:400;color:var(--muted2);margin-top:1px;">Workload chi tiết theo Team</span>
           </div>
           <table class="workload-table" id="workloadTable"></table>
         </div>
@@ -808,13 +809,13 @@
 
       <!-- Q1 Section -->
       <div>
-        <div class="section-label">Quý 1 — Jan → Mar 2026</div>
+        <div class="section-label">Quarter 1 — Jan → Mar 2026 <span style="font-size:9px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted2);margin-left:4px;">/ Quý 1</span></div>
         <div class="donut-grid" id="q1Grid"></div>
       </div>
 
       <!-- Q2 Section -->
       <div>
-        <div class="section-label">Quý 2 — Apr → Jun 2026 (YTD)</div>
+        <div class="section-label">Quarter 2 — Apr → Jun 2026 (YTD) <span style="font-size:9px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted2);margin-left:4px;">/ Quý 2</span></div>
         <div class="donut-grid" id="q2Grid"></div>
       </div>
 
@@ -848,7 +849,7 @@
 
       <!-- Assessment section -->
       <div>
-        <div class="section-label">Đánh giá tổng quan & Phân tích</div>
+        <div class="section-label">Overview Assessment & Analysis <span style="font-size:9px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted2);margin-left:4px;">/ Đánh giá tổng quan &amp; Phân tích</span></div>
         <div class="insight-grid" id="insightGrid"></div>
       </div>
     </main>
@@ -944,37 +945,47 @@
         const cards = [
           {
             cls: "total",
-            label: "Tổng công việc",
+            label: "Total Tasks",
+            labelVi: "Tổng công việc",
             val: agg.total,
-            sub: "Toàn phòng IT từ đầu năm",
+            sub: "IT Dept. year-to-date",
+            subVi: "Toàn phòng IT từ đầu năm",
             icon: "📋",
           },
           {
             cls: "done",
-            label: "Đã hoàn thành",
+            label: "Completed",
+            labelVi: "Đã hoàn thành",
             val: agg.done,
             sub: pct(agg.done, agg.total) + "% completion rate",
+            subVi: pct(agg.done, agg.total) + "% tỷ lệ hoàn thành",
             icon: "✅",
           },
           {
             cls: "doing",
-            label: "Đang thực hiện",
+            label: "In Progress",
+            labelVi: "Đang thực hiện",
             val: agg.doing,
-            sub: pct(agg.doing, agg.total) + "% đang trong progress",
+            sub: pct(agg.doing, agg.total) + "% currently in progress",
+            subVi: pct(agg.doing, agg.total) + "% đang trong progress",
             icon: "🔄",
           },
           {
             cls: "golive",
             label: "Ready for Golive",
+            labelVi: "Sẵn sàng Golive",
             val: agg.golive,
-            sub: pct(agg.golive, agg.total) + "% sẵn sàng golive",
+            sub: pct(agg.golive, agg.total) + "% ready for golive",
+            subVi: pct(agg.golive, agg.total) + "% sẵn sàng golive",
             icon: "🚀",
           },
           {
             cls: "overdue",
-            label: "Quá hạn",
+            label: "Overdue",
+            labelVi: "Quá hạn",
             val: agg.overdue,
-            sub: pct(agg.overdue, agg.total) + "% cần xử lý ngay",
+            sub: pct(agg.overdue, agg.total) + "% need immediate action",
+            subVi: pct(agg.overdue, agg.total) + "% cần xử lý ngay",
             icon: "⚠️",
           },
         ];
@@ -984,9 +995,9 @@
             (c) => `
     <div class="kpi-card ${c.cls}">
       <div class="kpi-badge">${c.icon}</div>
-      <div class="kpi-label">${c.label}</div>
+      <div class="kpi-label">${c.label}<br><span style="font-size:9px;font-weight:400;color:var(--muted2);">${c.labelVi}</span></div>
       <div class="kpi-value">${c.val}</div>
-      <div class="kpi-sub">${c.sub}</div>
+      <div class="kpi-sub">${c.sub}<br><span style="font-size:10px;color:var(--muted2);">${c.subVi}</span></div>
     </div>
   `,
           )
@@ -1090,7 +1101,7 @@
         // Total row
         const t = sumAll();
         html += `<tr style="background:#f0f4f9;">
-    <td><strong>Toàn phòng</strong></td>
+    <td><strong>All Teams</strong><br><span style="font-size:10px;font-weight:400;color:var(--muted2);">Toàn phòng</span></td>
     <td><strong style="font-family:'JetBrains Mono',monospace;color:#ea6c1a;">${t.total}</strong></td>
     <td><strong style="color:#15803d;font-family:'JetBrains Mono',monospace;">${t.done}</strong></td>
     <td><strong style="color:#1d4ed8;font-family:'JetBrains Mono',monospace;">${t.doing}</strong></td>
@@ -1339,23 +1350,23 @@
           {
             type: "insight-challenge",
             icon: "⚠️",
-            title: "Khó khăn trong quá trình triển khai Q2",
+            title: `Challenges in Q2 Implementation<span style="display:block;font-size:10px;font-weight:400;color:var(--muted2);margin-top:2px;">Khó khăn trong quá trình triển khai Q2</span>`,
             items: [
               {
                 icon: "🚀",
-                text: `3 CRs của Team Mobile Q2 đã sẵn sàng Golive — CR 2275303 (Securities Depository), CR 2149046 (EKYC) và CR 2329940 (AI Chatbot) đã hoàn tất phát triển, đang chờ lịch triển khai production. Cần sớm phối hợp với Vận hành và các phòng ban liên quan để chốt lịch Golive, checklist triển khai và phương án hỗ trợ sau release.`
+                text: `3 CRs from Team Mobile Q2 are ready for Golive — CR 2275303 (Securities Depository), CR 2149046 (EKYC), and CR 2329940 (AI Chatbot) have completed development and are awaiting production deployment. Early coordination with Operations and related departments is needed to finalize the Golive schedule, deployment checklist, and post-release support plan.<br><span style="display:block;font-size:10px;color:var(--muted2);font-style:italic;margin-top:4px;">3 CRs của Team Mobile Q2 đã sẵn sàng Golive — CR 2275303 (Securities Depository), CR 2149046 (EKYC) và CR 2329940 (AI Chatbot) đã hoàn tất phát triển, đang chờ lịch triển khai production. Cần sớm phối hợp với Vận hành và các phòng ban liên quan để chốt lịch Golive, checklist triển khai và phương án hỗ trợ sau release.</span>`
               },
               {
                 icon: "🔴",
-                text: `${agg.overdue} tasks quá hạn ở Team Mobile Q2 — Bao gồm CR 2084592 (Special Interest Rate on FLEX) và CR 2238356 (Advance Margin). Các CR này phụ thuộc bên thứ ba và cần phối hợp liên phòng ban như RMD, SS, MSD, nên cần xác định rõ owner, deadline phản hồi và hướng xử lý dependency.`
+                text: `${agg.overdue} overdue tasks in Team Mobile Q2 — Including CR 2084592 (Special Interest Rate on FLEX) and CR 2238356 (Advance Margin). These CRs depend on third parties and require cross-department coordination with RMD, SS, MSD; clear owners, response deadlines, and dependency resolution paths must be defined.<br><span style="display:block;font-size:10px;color:var(--muted2);font-style:italic;margin-top:4px;">${agg.overdue} tasks quá hạn ở Team Mobile Q2 — Bao gồm CR 2084592 (Special Interest Rate on FLEX) và CR 2238356 (Advance Margin). Các CR này phụ thuộc bên thứ ba và cần phối hợp liên phòng ban như RMD, SS, MSD, nên cần xác định rõ owner, deadline phản hồi và hướng xử lý dependency.</span>`
               },
               {
                 icon: "⏳",
-                text: `MW Team đang xử lý 10 tasks đồng thời trong Q2 — Bao gồm 8 CRs carryover từ 2025 và các yêu cầu mới. Đây là nhóm có khối lượng doing lớn nhất toàn phòng, tạo áp lực về tiến độ, chất lượng xử lý và rủi ro trễ hạn.`
+                text: `MW Team is handling 10 tasks simultaneously in Q2 — Including 8 CRs carried over from 2025 and new requests. This team has the highest in-progress volume in the department, creating pressure on delivery pace, processing quality, and schedule risk.<br><span style="display:block;font-size:10px;color:var(--muted2);font-style:italic;margin-top:4px;">MW Team đang xử lý 10 tasks đồng thời trong Q2 — Bao gồm 8 CRs carryover từ 2025 và các yêu cầu mới. Đây là nhóm có khối lượng doing lớn nhất toàn phòng, tạo áp lực về tiến độ, chất lượng xử lý và rủi ro trễ hạn.</span>`
               },
               {
                 icon: "🧩",
-                text: `MW Team đang gặp rủi ro chồng chéo logic trên môi trường DEV — Nhiều CR được deploy đồng thời lên DEV khiến logic có thể bị ghi đè lẫn nhau, phát sinh lỗi lặp lại và phải fix nhiều lần. Cần kiểm soát thứ tự deploy, version, branch và dependency để hạn chế ảnh hưởng đến chất lượng release.`
+                text: `MW Team faces logic overlap risk in the DEV environment — Multiple CRs deployed simultaneously to DEV can overwrite each other's logic, causing repeated bugs that require multiple fixes. Deploy order, versioning, branching, and dependencies need to be tightly controlled to minimize impact on release quality.<br><span style="display:block;font-size:10px;color:var(--muted2);font-style:italic;margin-top:4px;">MW Team đang gặp rủi ro chồng chéo logic trên môi trường DEV — Nhiều CR được deploy đồng thời lên DEV khiến logic có thể bị ghi đè lẫn nhau, phát sinh lỗi lặp lại và phải fix nhiều lần. Cần kiểm soát thứ tự deploy, version, branch và dependency để hạn chế ảnh hưởng đến chất lượng release.</span>`
               },
               // {
               //   icon: "📋",
