@@ -1,0 +1,84 @@
+﻿report_date,task_id,request_id,team,assignee,stage,stage_order,status,priority,phase,q_kpi,is_subtask,is_done,wip_flag,is_multi_team,team_count,has_deadline,sla_met,completed_late,late_days,days_to_deadline,age_days,cycle_time_days,lead_time_days,stale_days,risk_level,waiting_external,has_weekly_review,recommit_count
+2026-07-03,10347513,,MW Team,NGUYỄN MINH HỮU,,,Doing,Medium,Q2,,0,0,1,0,1,0,,0,0,,0,,,,Medium,0,0,0
+2026-07-03,10274446,2129248,Dev Team B,VÕ BẢO MINH,UAT Testing,5,UAT,Medium,Q2,2026Q2,0,0,1,0,1,1,0,1,2,,14,13,259,,High,0,0,1
+2026-07-03,10223433,2335404,Dev Team B,VÕ BẢO MINH,UAT Testing,5,UAT,Medium,Q2,2026Q2,0,0,1,1,2,1,1,0,0,,25,3,67,,High,0,0,1
+2026-07-03,10055830,2084592,Dev Team B,VÕ BẢO MINH,UAT Testing,5,UAT,High,Q2,2026Q2,0,0,1,1,3,1,0,1,0,,59,10,224,,High,0,0,1
+2026-07-03,9739419,2084592,Team Mobile,VÕ THANH PHONG,UAT Testing,5,Overdue,High,Q2,2026Q1,0,0,0,1,3,1,,0,33,-33,122,,,2,High,0,1,1
+2026-07-03,9739414,2149046,Team Mobile,VÕ THANH PHONG,UAT Testing,5,Overdue,High,Q2,2026Q1,0,0,0,1,2,1,,0,42,-42,122,,,3,High,0,1,0
+2026-07-03,9739427,2283752,Team Mobile,,UAT Testing,5,UAT,Low,Q2,2026Q2,0,0,1,1,2,0,,0,0,,122,,,2,Medium,0,1,0
+2026-07-03,9739415,2238356,Team Mobile,VÕ THANH PHONG,UAT Testing,5,Overdue,High,Q2,2026Q1,0,0,0,1,2,1,,0,35,-35,122,,,2,High,0,1,0
+2026-07-03,9953694,2335404,Team Mobile,VÕ THANH PHONG,FTL Coding,3,Doing,Medium,Q2,2026Q3,0,0,1,1,2,0,,0,0,,81,,,2,Medium,0,1,0
+2026-07-03,10340145,2330515,Dev Team B,VÕ BẢO MINH,Backlog,0,Todo,Low,Q3,2026Q3,0,0,0,1,2,0,,0,0,,1,,,,Low,0,0,0
+2026-07-03,10340143,2415056,Dev Team B,VÕ BẢO MINH,Discuss Req,1,Doing,Low,Q3,2026Q3,0,0,1,1,2,0,,0,0,,1,,,,Medium,0,0,0
+2026-07-03,10340127,2425861,Dev Team B,VÕ BẢO MINH,Backlog,0,Todo,Low,Q3,2026Q3,0,0,0,0,1,0,,0,0,,1,,,,Low,0,0,0
+2026-07-03,10340024,2426812,Dev Team B,VÕ BẢO MINH,Design UI/UX,2,Doing,Low,Q3,2026Q3,0,0,1,0,1,0,,0,0,,1,,,,Medium,0,0,0
+2026-07-03,10340021,2403987,Dev Team B,VÕ BẢO MINH,Web B Coding,3,Doing,Low,Q3,2026Q3,0,0,1,0,1,0,,0,0,,1,,,,Medium,0,0,1
+2026-07-03,10340020,2540233,Dev Team B,VÕ BẢO MINH,Dev To do,3,Todo,Low,Q3,2026Q3,0,0,0,1,2,0,,0,0,,1,,,,Low,0,0,0
+2026-07-03,10058431,1954732,Dev Team B,VÕ BẢO MINH,Dev To do,3,Todo,Low,Backlog,,0,0,0,0,1,0,,0,0,,58,,,,Low,0,0,0
+2026-07-03,9956873,1923581,Dev Team B,VÕ BẢO MINH,Pending,3,Blocked,Low,Backlog,,0,0,0,0,1,0,,0,0,,80,,,,High,1,0,0
+2026-07-03,10059258,2403987,Dev Team B,VÕ BẢO MINH,UAT Testing,5,UAT,Low,Q2,2026Q2,0,0,1,0,1,0,,0,0,,58,,,1,Medium,0,1,1
+2026-07-03,9956507,2275303,Dev Team B,VÕ BẢO MINH,Ready for go-live,6,Done,Medium,Q2,2026Q2,0,1,0,1,3,1,0,1,0,,80,21,98,,Low,0,0,1
+2026-07-03,9956961,2400155,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Medium,Q2,2026Q2,0,1,0,1,2,1,0,1,2,,80,75,77,,Low,0,0,0
+2026-07-03,10055837,2423945,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,59,26,28,,Low,0,0,0
+2026-07-03,9956498,2154685,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Medium,Q2,2026Q2,0,1,0,1,2,1,0,1,6,,80,85,175,,Low,0,0,1
+2026-07-03,9956496,2385402,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,80,11,29,,Low,0,0,1
+2026-07-03,9956499,2197982,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,80,42,139,,Low,0,0,1
+2026-07-03,10334131,2506884,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Q3,,0,0,0,0,1,0,,0,0,,2,,,,Low,0,0,0
+2026-07-03,10334133,2526008,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Q3,,0,0,0,0,1,0,,0,0,,2,,,,Low,0,0,0
+2026-07-03,10209339,2482578,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Q3,,0,0,0,0,1,0,,0,0,,28,,,2,Low,0,1,0
+2026-07-03,10334127,2216483,Team Mobile,VÕ THANH PHONG,Web B Coding,3,Doing,Low,Q3,,0,0,1,1,2,0,,0,0,,2,,,,Medium,0,0,0
+2026-07-03,10334124,2540233,Team Mobile,VÕ THANH PHONG,Discuss Req,1,Doing,Low,Q3,,0,0,1,1,2,0,,0,0,,2,,,,Medium,0,0,0
+2026-07-03,10209283,2415056,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Q3,,0,0,0,1,2,0,,0,0,,28,,,2,Low,0,1,0
+2026-07-03,10334126,2310394,Team Mobile,VÕ THANH PHONG,Waiting FTL,3,Blocked,Low,Q3,,0,0,0,1,2,0,,0,0,,2,,,,High,1,0,0
+2026-07-03,10209368,2291957,Team Mobile,VÕ THANH PHONG,Discuss Req,1,Doing,Low,Q3,,0,0,1,0,1,0,,0,0,,28,,,2,Medium,0,1,0
+2026-07-03,9953690,2397922,Team Mobile,VÕ THANH PHONG,Dev To do,3,Todo,Low,Q3,,0,0,0,0,1,0,,0,0,,81,,,2,Low,0,1,0
+2026-07-03,9739425,2317336,Team Mobile,,Design review,2,Doing,Low,Q3,,0,0,1,0,1,0,,0,0,,122,,,2,Medium,0,1,0
+2026-07-03,9953664,2330515,Team Mobile,VÕ THANH PHONG,Design UI/UX,2,Doing,Low,Q3,,0,0,1,1,2,0,,0,0,,81,,,2,Medium,0,1,0
+2026-07-03,10334129,2438262,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Q3,,0,0,0,0,1,0,,0,0,,2,,,,Low,0,0,0
+2026-07-03,9739426,2289280,Team Mobile,,Dev To do,3,Todo,Low,Q3,,0,0,0,1,2,0,,0,0,,122,,,2,Low,0,1,0
+2026-07-03,9953685,2307583,Team Mobile,VÕ THANH PHONG,Discuss Req,1,Todo,Low,Backlog,,0,0,0,0,1,0,,0,0,,81,,,2,Low,0,1,0
+2026-07-03,9953687,2376660,Team Mobile,VÕ THANH PHONG,Backlog,0,Todo,Low,Backlog,,0,0,0,0,1,0,,0,0,,81,,,2,Low,0,1,0
+2026-07-03,9739412,2174942,Team Mobile,VÕ THANH PHONG,Pending,3,Blocked,Low,Backlog,2026Q1,0,0,0,0,1,0,,0,0,,122,,,2,High,1,1,0
+2026-07-03,10217565,2340654,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,0,1,0,,0,0,,27,0,96,,Low,0,0,0
+2026-07-03,10090312,2310394,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,1,2,0,,0,0,,52,51,98,,Low,0,0,0
+2026-07-03,10090329,2446191,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,0,1,0,,0,0,,52,35,40,,Low,0,0,1
+2026-07-03,10090302,2222464,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,1,2,0,,0,0,,52,1,152,,Low,0,0,0
+2026-07-03,10090343,2443571,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,0,1,0,,0,0,,52,24,30,,Low,0,0,0
+2026-07-03,10090240,2133352,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Medium,Q2,,0,1,0,1,2,0,,0,0,,52,3,205,,Low,0,0,0
+2026-07-03,10090247,2246969,MW Team,NGUYỄN MINH HỮU,Go-live,7,Done,Low,Q2,,0,1,0,0,1,0,,0,0,,52,3,136,,Low,0,0,0
+2026-07-03,10090293,2275303,MW Team,NGUYỄN MINH HỮU,FTL Coding,3,Doing,Medium,Q2,,0,0,1,1,3,0,,0,0,,52,51,156,,Medium,0,0,0
+2026-07-03,10090287,2216483,MW Team,NGUYỄN MINH HỮU,Waiting FTL,3,Blocked,Low,Q2,,0,0,0,1,2,0,,0,0,,52,51,184,0,High,1,1,0
+2026-07-03,10090263,2238356,MW Team,NGUYỄN MINH HỮU,UAT Testing,5,UAT,High,Q2,,0,0,1,1,2,0,,0,0,,52,,,0,Medium,0,1,0
+2026-07-03,10090209,2084592,MW Team,NGUYỄN MINH HỮU,Waiting FTL,3,Blocked,High,Q2,,0,0,0,1,3,0,,0,0,,52,,,0,High,1,1,0
+2026-07-03,10090204,2149046,MW Team,NGUYỄN MINH HỮU,UAT Testing,5,UAT,High,Q2,,0,0,1,1,2,0,,0,0,,52,,,0,Medium,0,1,0
+2026-07-03,10090258,2106995,MW Team,NGUYỄN MINH HỮU,UAT Testing,5,UAT,Low,Q2,,0,0,1,0,1,0,,0,0,,52,,,0,Medium,0,1,0
+2026-07-03,10090289,2283752,MW Team,NGUYỄN MINH HỮU,UAT Testing,5,UAT,Low,Q2,,0,0,1,1,2,0,,0,0,,52,,,0,Medium,0,1,0
+2026-07-03,10090323,2437753,MW Team,NGUYỄN MINH HỮU,FSS Eval CR,1,Doing,Low,Q3,,0,0,1,0,1,0,,0,0,,52,,,0,Medium,0,1,0
+2026-07-03,10090283,2289280,MW Team,NGUYỄN MINH HỮU,Discuss Req,1,Todo,Low,Backlog,,0,0,0,1,2,0,,0,0,,52,,,,Low,0,0,0
+2026-07-03,9739429,2275303,Team Mobile,,Go-live,7,Done,Medium,Q2,2026Q2,0,1,0,1,3,1,0,1,33,,122,117,153,,Low,0,0,0
+2026-07-03,9953652,2310394,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q2,,0,1,0,1,2,0,,0,0,,81,76,95,,Low,0,0,0
+2026-07-03,9953677,2400155,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q2,,0,1,0,1,2,0,,0,0,,81,76,77,,Low,0,0,0
+2026-07-03,9739428,2329940,Team Mobile,,Go-live,7,Done,Medium,Q2,2026Q2,0,1,0,0,1,1,0,1,13,,122,93,102,,Low,0,0,0
+2026-07-03,9931785,2306127,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q2,,0,1,0,0,1,0,,0,0,,85,47,71,,Low,0,0,0
+2026-07-03,10007137,2372910,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,70,9,47,,Low,0,0,0
+2026-07-03,9739424,2216483,Team Mobile,,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,1,2,0,,0,0,,122,61,124,,Low,0,0,0
+2026-07-03,9931751,2400512,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,85,10,14,,Low,0,0,0
+2026-07-03,9739423,2222464,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,1,2,0,,0,0,,122,47,,,Low,0,0,0
+2026-07-03,9739422,2212813,Team Mobile,,Go-live,7,Done,Low,Q2,2026Q2,0,1,0,0,1,0,,0,0,,122,41,61,,Low,0,0,0
+2026-07-03,9739420,2133352,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,1,2,1,1,0,0,,122,28,159,,Low,0,0,0
+2026-07-03,9739418,2247969,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,0,1,1,1,0,0,,122,19,90,,Low,0,0,1
+2026-07-03,9739416,2186435,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,1,2,1,1,0,0,,122,28,125,,Low,0,0,1
+2026-07-03,9739417,2285823,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,0,1,1,1,0,0,,122,13,48,,Low,0,0,1
+2026-07-03,9739421,2224919,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,0,1,1,1,0,0,,122,18,87,,Low,0,0,0
+2026-07-03,9739413,2302697,Team Mobile,,Rejected,-1,Rejected,Low,Q1,2026Q2,0,1,0,0,1,0,,0,0,,122,2,36,,Low,0,0,0
+2026-07-03,9739430,2185585,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,102,,Low,0,0,1
+2026-07-03,9739431,2154685,Team Mobile,,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,1,2,0,,0,0,,122,0,112,,Low,0,0,1
+2026-07-03,9739432,,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,28,,Low,0,0,0
+2026-07-03,9739433,2077975,Team Mobile,,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,104,,Low,0,0,0
+2026-07-03,9739434,2196774,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,142,,Low,0,0,0
+2026-07-03,9739435,2242463,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,,,Low,0,0,0
+2026-07-03,9739436,2185583,Team Mobile,VÕ THANH PHONG,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,99,,Low,0,0,0
+2026-07-03,9739106,2213580,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,13,88,,Low,0,0,1
+2026-07-03,9739108,2186435,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,1,2,1,0,1,0,,122,8,105,,Low,0,0,1
+2026-07-03,9739105,2065876,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Low,Q1,2026Q1,0,1,0,0,1,0,,0,0,,122,0,174,,Low,0,0,1
+2026-07-03,9744376,1722552,Dev Team B,VÕ BẢO MINH,Go-live,7,Done,Medium,Q1,2026Q1,0,1,0,0,1,1,0,1,18,,121,0,371,,Low,0,0,0
