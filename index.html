@@ -162,7 +162,7 @@
       /* ── KPI Row ── */
       .kpi-row {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 12px;
       }
 
@@ -1037,24 +1037,6 @@
             sub: pct(agg.uat, agg.total) + "% awaiting UAT sign-off",
             subVi: pct(agg.uat, agg.total) + "% chờ nghiệm thu UAT",
             icon: "🚀",
-          },
-          {
-            cls: "blocked",
-            label: "Blocked",
-            labelVi: "Đang chờ / tắc",
-            val: agg.blocked,
-            sub: pct(agg.blocked, agg.total) + "% waiting on dependency",
-            subVi: pct(agg.blocked, agg.total) + "% chờ dependency",
-            icon: "⏸️",
-          },
-          {
-            cls: "overdue",
-            label: "Overdue",
-            labelVi: "Quá hạn",
-            val: agg.overdue,
-            sub: pct(agg.overdue, agg.total) + "% need immediate action",
-            subVi: pct(agg.overdue, agg.total) + "% cần xử lý ngay",
-            icon: "⚠️",
           },
         ];
         const el = document.getElementById("kpiRow");

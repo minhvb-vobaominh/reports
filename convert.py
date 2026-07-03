@@ -228,12 +228,14 @@ def stage_to_status(stage):
 
 def derive_status(stage, status_vn):
     """Decide task status: Stage drives it, WeWork status is the fallback,
-    and an overdue WeWork status overrides any not-yet-done stage."""
+    and an overdue WeWork status overrides any stage still in development.
+    Tasks already in UAT are past dev — keep them as UAT (the missed
+    deadline still shows up via late_days / risk_level)."""
     wework = STATUS_MAP.get(status_vn, status_vn)
     staged = stage_to_status(stage)
     if staged is None:
         return wework
-    if wework == "Overdue" and staged not in ("Done", "Rejected"):
+    if wework == "Overdue" and staged not in ("Done", "Rejected", "UAT"):
         return "Overdue"
     return staged
 
